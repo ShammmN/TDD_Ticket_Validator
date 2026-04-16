@@ -1,9 +1,11 @@
 def validate_ticket(code): 
-    if type(code) != str:
-        raise ValueError("The code must be a string!")
+    if not isinstance(code, str):
+        raise TypeError("The code must be a string!")
     if len(code) != 8:
         return False
-    if code[0] != "T" and code[1] != "K":
+    if not code.startswith("TK"):
+        return False
+    if not code[2:].isdigit():
         return False
     else:
         return True

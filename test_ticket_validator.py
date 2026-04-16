@@ -2,8 +2,8 @@ import pytest
 from ticket_validator import validate_ticket, get_ticket_tier, calculate_total
 
 def test_validate_ticket_true():
-    newCode = "TK999999"
-    result = validate_ticket(newCode)
+    newcode = "TK999999"
+    result = validate_ticket(newcode)
     assert result == True
 
 def test_validate_ticket_len():
@@ -12,8 +12,8 @@ def test_validate_ticket_len():
     assert result == False
 
 def test_validate_ticket_prefix():
-    newCode = "SH999999"
-    result = validate_ticket(newCode)
+    newcode = "SH999999"
+    result = validate_ticket(newcode)
     assert result == False
 
 def test_validate_ticket_str():
@@ -22,7 +22,7 @@ def test_validate_ticket_str():
         validate_ticket(newcode)
 
 def test_get_tier_invalid():
-    newCode = "SH999999"
+    newcode = "SH999999"
     with pytest.raises(ValueError):
         get_ticket_tier(newcode)
 
